@@ -14,7 +14,7 @@ services:
     image: ubuntu_ws:latest
     build: 
       context: ..
-      dockerfile: ./docker_test/Dockerfile
+      dockerfile: ./docker_ubuntu/Dockerfile
     container_name: ubuntu
     volumes:
       - "../:/root/catkin_ws/src"

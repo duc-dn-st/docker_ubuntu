@@ -5,7 +5,7 @@ FROM osrf/ros:noetic-desktop-full
 LABEL maintainer="Dinh Ngoc Duc <duc.dn.st@gmail.com>"
 
 # copy install scripts
-COPY ./docker_test/install ./root/install
+COPY ./docker_ubuntu/install ./root/install
 
 # copy directory specific to scart
 COPY ./ ./root/catkin_ws/src/
