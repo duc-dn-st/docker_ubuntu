@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  ros-master:
+    image: ros:noetic-ros-core
+    container_name: ros-master
+    command: stdbuf -o L roscore
+    network_mode: host
+  
+  ubuntu:
+    user: root
+    depends_on: 
+      - ros-master
+    image: ubuntu_ws:latest
+    build: 
+      context: ..
+      dockerfile: ./docker_test/Dockerfile
+    container_name: ubuntu
+    volumes:
+      - "../:/root/catkin_ws/src"
+    privileged: True
+    network_mode: host
+    tty: true
+    entrypoint: 
+      - tail
+      - -f
+      - /dev/null
